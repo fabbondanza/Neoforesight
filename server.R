@@ -13,3 +13,8 @@ VDT <- function(date1,date2,diam1,diam2) {
   
   return(vdt)
 }
+
+function(input, output) {
+  output$vdt <- VDT(date1 = input$date1, date2 = input$date2, diam1 = input$diam1, diam2 = input$diam2)
+  input$date1()
+}
