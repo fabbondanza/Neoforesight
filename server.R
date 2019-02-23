@@ -1,8 +1,8 @@
-
 VDT <- function(date1,date2,diam1,diam2) {
   
   v2 = diam2^3/2 
   v1 = diam1^3/2
+  stage = 
   # date_strings = c("14.01.2013", "26.03.2014")
   # datetimes = strptime(date_strings, format = "%d.%m.%Y") # convert to datetime objects
   # diff_time <- difftime(datetimes[2], datetimes[1], units = 'days')
@@ -11,10 +11,17 @@ VDT <- function(date1,date2,diam1,diam2) {
   
   vdt = ((diff_time)*log(2))/(log(v2/v1))
   
-  return(vdt)
+  
+  
+  return(vdt, )
 }
 
-function(input, output) {
+shinyServer(function(input, output) {
+  library(ggplot2)
+  library(plotly)
   output$vdt <- VDT(date1 = input$date1, date2 = input$date2, diam1 = input$diam1, diam2 = input$diam2)
-  input$date1()
-}
+  
+  output$plot <- renderPlot(plotly(ggplot(output$vdt) +
+                                     geom_line()))
+    
+})
