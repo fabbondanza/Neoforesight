@@ -13,26 +13,34 @@ VDT <- function(date1,date2,diam1,diam2) {
   t_scan2= diam2/diamt
   #here we are calculating days it will take to get from current stage to next since the 2nd scan performed
   if(diam2 < 1 ) {
+    stagescan2="T1a"
     t_T1A = 1.01 / y # days it takes to reach to 1cm size given the exponential rate of growth in size in a day
     t<-t_T1A - t_scan2
   } else if (diam2 < 2) {
+    stagescan2="T1b"
     t_T1b = 2.01 / y
     t<-t_T1b - t_scan2
   } else if (diam2 < 3) {
+    stagescan2="T1c"
     t_T1c = 3.01 / y
     t = t_T1c - t_scan2
   } else if (diam2 < 4) {
+    stagescan2="T2a"
     t_T2a = 4.01 / y
     t = t_T2a - t_scan2
   } else if (diam2 < 5) {
+    stagescan2="T2b"
     t_T2b = 5.01 / y
     t = t_T2b - t_scan2
   } else if (diam2 < 7) {
+    stagescan2="T3"
     t_T3 = 7.01 / y
     t = t_T3 - t_scan2
+  }else if (diam2 > 7) {
+    stagescan2="T4"
   }
   
-  return(vdt, t)
+  return(vdt, stagescan2,t)
 }
 
 shinyServer(function(input, output) {
