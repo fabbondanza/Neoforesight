@@ -1,4 +1,3 @@
-
 VDT <- function(date1,date2,diam1,diam2) {
   
   v2 = diam2^3/2 # in cm
@@ -31,16 +30,19 @@ VDT <- function(date1,date2,diam1,diam2) {
   } else if (diam2 < 7) {
     t_T3 = 7.01 / y
     t = t_T3 - t_scan2
-    
-}
+  }
   
   return(vdt, t)
 }
 
-function(input, output) {
+shinyServer(function(input, output) {
+  library(ggplot2)
+  library(plotly)
   output$vdt <- VDT(date1 = input$date1, date2 = input$date2, diam1 = input$diam1, diam2 = input$diam2)
-  input$date1()
-}
+  output$plot <- renderPlot(plotly(ggplot(output$vdt) +
+                                     geom_line()))
+    
+})
 
 # growth rate[mm/day] = (scan2 - scan1)/(time2 - time1) ==== scan in mm / time in days 
 # y = growth rate^time 
