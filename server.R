@@ -12,6 +12,7 @@ VDT <- function(date1,date2,diam1,diam2) {
   vdt = ((diff_time)*log(2))/(log(v2/v1))# volume doubling time in days
   diamt= ((diam2-diam1)/diff_time)^(diff_time)
   t_scan2= diam2/diamt
+  #here we are calculating days it will take to get from current stage to next since the 2nd scan performed
   if(diam2 < 1 ) {
     t_T1A = 1.01 / y # days it takes to reach to 1cm size given the exponential rate of growth in size in a day
     t<-t_T1A - t_scan2
