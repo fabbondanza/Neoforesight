@@ -50,8 +50,3 @@ shinyServer(function(input, output) {
                                      geom_line()))
     
 })
-
-v2 = pi*((6^3)/6) #in cm
-v1 = pi*((3^3)/6) #in cm
-
-VDT(date1 ="2012-07-01", date2 = "2012-09-01", diam1 = 3, diam2 = 6)
