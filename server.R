@@ -1,13 +1,7 @@
 VDT <- function(date1,date2,diam1,diam2) {
   
-<<<<<<< HEAD
-  v2 = diam2^3/2 
-  v1 = diam1^3/2
-  stage = 
-=======
   v2 = diam2^3/2 # in cm
   v1 = diam1^3/2 #in cm
->>>>>>> b92498a64027618dbade52b64e0b0c06def70219
   # date_strings = c("14.01.2013", "26.03.2014")
   # datetimes = strptime(date_strings, format = "%d.%m.%Y") # convert to datetime objects
   # diff_time <- difftime(datetimes[2], datetimes[1], units = 'days')
@@ -35,31 +29,19 @@ VDT <- function(date1,date2,diam1,diam2) {
   } else if (diam2 < 7) {
     t_T3 = 7.01 / y
     t = t_T3 - t_scan2
-    
-}
+  }
   
-<<<<<<< HEAD
-  
-  
-  return(vdt, )
-=======
   return(vdt, t)
->>>>>>> b92498a64027618dbade52b64e0b0c06def70219
 }
 
 shinyServer(function(input, output) {
   library(ggplot2)
   library(plotly)
   output$vdt <- VDT(date1 = input$date1, date2 = input$date2, diam1 = input$diam1, diam2 = input$diam2)
-<<<<<<< HEAD
-  
   output$plot <- renderPlot(plotly(ggplot(output$vdt) +
                                      geom_line()))
     
 })
-=======
-  input$date1()
-}
 
 # growth rate[mm/day] = (scan2 - scan1)/(time2 - time1) ==== scan in mm / time in days 
 # y = growth rate^time 
@@ -85,4 +67,3 @@ shinyServer(function(input, output) {
 #   t_T1c = 30 / y
 #   return t }
 # }
->>>>>>> b92498a64027618dbade52b64e0b0c06def70219
