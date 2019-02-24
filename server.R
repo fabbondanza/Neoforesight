@@ -115,14 +115,11 @@ function(input, output) {
   output$plot <- renderPlot({ggplot2::ggplot(sizetime(), aes(t,s)) +
       geom_line() +
       xlab('Time') +
-      #                                 geom_text(aes(x=sizetime()[]) +
-      # geom_text(aes(x = 'Initial', hjust = -5, y = 0.177, label = '**')) +
-      
       ylab('Growth of tumour in centimeters') +
       ylim(c(sizetime()[1,1], sizetime()[3,1] + 1))+
-      xlim(c(sizetime()[1,2], sizetime()[3,2] + 5)) +
-      # geom_vline(xintercept = next_stage) +
+      xlim(c(sizetime()[1,2], sizetime()[3,2] + 8)) +
       geom_vline(xintercept = input$date2)+
       geom_vline(xintercept = sizetime()[3,2], colour='red')})
+
   
 }

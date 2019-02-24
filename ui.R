@@ -2,8 +2,7 @@ library(shiny)
 
 
 shinyUI(fluidPage(
-  titlePanel('Neo Trendz: Calculator for VDT and Time to Next Tumor Stage'),
-  
+  titlePanel('Neo Trendz: Calculator for Lung Nodule VDT and Time to Next Tumor Stage'),
   sidebarLayout(
     sidebarPanel(
       wellPanel(
@@ -27,7 +26,7 @@ shinyUI(fluidPage(
       textOutput('values6')),
     
     mainPanel(
-      plotOutput('plot')
-    ))
+     plotOutput('plot')
+     ))
   
 ))
